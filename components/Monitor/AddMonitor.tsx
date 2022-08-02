@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import { FaPlus } from "react-icons/fa";
 import { useAppDispatch, useAppSelector } from "../../redux/app/hooks";
 import {
+  getNewId,
   newMonitor,
   selectMonitors,
 } from "../../redux/features/monitor/monitorSlice";
+import { localStorageSaveNewMonitor } from "../../storage/monitorStorage";
 
 type Props = {};
 
@@ -13,15 +15,19 @@ function AddMonitor({}: Props) {
   const [label, setLabel] = useState("");
   const [url, setUrl] = useState("");
   const dispatch = useAppDispatch();
-  // const monitors = useAppSelector(selectMonitors);
+  const monitors = useAppSelector(selectMonitors);
   const handleSubmit = () => {
     dispatch(newMonitor({ label, url }));
+    localStorageSaveNewMonitor(
+      { label, url, id: getNewId(monitors) },
+      localStorage
+    );
     setLabel("");
     setUrl("");
     setClicked(false);
   };
   return (
-    <div className="bg-gray-800 h-full w-full flex items-center justify-center">
+    <div className="bg-gray-800 h-full w-full flex items-center justify-center min-h-[182px] min-w-[300px]">
       {!clicked ? (
         <button
           className={`h-full w-full hover:scale-110 flex items-center justify-center`}

@@ -2,10 +2,12 @@ import React from "react";
 import {
   deleteMonitor,
   IMonitor,
+  selectMonitors,
 } from "../../redux/features/monitor/monitorSlice";
 import { BiX } from "react-icons/bi";
-import { useAppDispatch } from "../../redux/app/hooks";
+import { useAppDispatch, useAppSelector } from "../../redux/app/hooks";
 import ConfirmButton from "../ConfirmButton/ConfirmButton";
+import { localStorageRemoveMonitor } from "../../storage/monitorStorage";
 
 type Props = {
   monitor: IMonitor;
@@ -28,7 +30,10 @@ function Monitor({ monitor }: Props) {
             confirmMessage="Remover monitor?"
             confirmValue="Sim"
             cancelValue="Não"
-            onClick={() => dispatch(deleteMonitor(monitor.id))}
+            onClick={() => {
+              dispatch(deleteMonitor(monitor.id));
+              localStorageRemoveMonitor(monitor.id, localStorage);
+            }}
           >
             <div className="bg-gray-700 rounded-full">
               <BiX size={20}></BiX>
