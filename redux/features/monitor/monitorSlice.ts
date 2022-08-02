@@ -15,43 +15,6 @@ interface MonitorState {
 // Define the initial state using that type
 const initialState: MonitorState = {
   monitors: [],
-  // [
-  //   // {
-  //   //   url: "http://www.youtube.com/embed/oHg5SJYRHA0?autoplay=1",
-  //   //   label: "RickRoll 1",
-  //   //   id: 1,
-  //   // },
-  //   // {
-  //   //   url: "http://www.youtube.com/embed/oHg5SJYRHA0?autoplay=1",
-  //   //   label: "RickRoll 2",
-  //   //   id: 2,
-  //   // },
-  //   // {
-  //   //   url: "http://www.youtube.com/embed/oHg5SJYRHA0?autoplay=1",
-  //   //   label: "RickRoll 3",
-  //   //   id: 3,
-  //   // },
-  //   // {
-  //   //   url: "http://www.youtube.com/embed/oHg5SJYRHA0?autoplay=1",
-  //   //   label: "RickRoll 4",
-  //   //   id: 4,
-  //   // },
-  //   // {
-  //   //   url: "http://www.youtube.com/embed/oHg5SJYRHA0?autoplay=1",
-  //   //   label: "RickRoll 5",
-  //   //   id: 5,
-  //   // },
-  //   // {
-  //   //   url: "http://www.youtube.com/embed/oHg5SJYRHA0?autoplay=1",
-  //   //   label: "RickRoll 6",
-  //   //   id: 6,
-  //   // },
-  //   // {
-  //   //   url: "http://www.youtube.com/embed/oHg5SJYRHA0?autoplay=1",
-  //   //   label: "RickRoll 7",
-  //   //   id: 7,
-  //   // },
-  // ],
 };
 
 export const monitorSlice = createSlice({

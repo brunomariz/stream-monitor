@@ -20,7 +20,7 @@ function MonitorList({}: Props) {
     <div className="w-full flex justify-center">
       <div className="grid grid-cols-4 p-2 gap-2 items-center justify-center bg-gray-900 max-w-max">
         {monitors.map((monitor) => {
-          return <Monitor monitor={monitor}></Monitor>;
+          return <Monitor key={monitor.id} monitor={monitor}></Monitor>;
         })}
         <AddMonitor></AddMonitor>
       </div>
